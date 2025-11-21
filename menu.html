@@ -1,0 +1,123 @@
+<!doctype html>
+<!-- FORNO Digital Menu — Cozy & Clean Design -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FORNO — Digital Menu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/menu-styles.css">
+</head>
+<body>
+  <header class="menu-header">
+    <div class="container header-top">
+      <a href="index.html" class="back-link">← Back to FORNO</a>
+      <h1>FORNO <span class="byline">By Bait Shaker</span></h1>
+      <div class="qr-button" id="qr-trigger">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect x="2" y="2" width="6" height="6" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="12" y="2" width="6" height="6" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="2" y="12" width="6" height="6" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="15" cy="15" r="2.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        </svg>
+        QR
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="menu-hero">
+      <h2>Our Menu</h2>
+      <p class="muted">Handcrafted Italian favorites, baked and served with warmth.</p>
+    </section>
+
+    <div id="qr-modal" class="qr-modal" style="display:none;">
+      <div class="qr-modal-content">
+        <button class="qr-close" onclick="document.getElementById('qr-modal').style.display='none'">×</button>
+        <h3>Share This Menu</h3>
+        <div id="qr-display" class="qr-display"></div>
+        <p class="qr-hint">Scan to share or bookmark this menu</p>
+      </div>
+    </div>
+
+    <div class="container menu-list">
+      <!-- PIZZA -->
+      <section class="menu-category">
+        <div class="category-header">
+          <h3>Pizza</h3>
+        </div>
+        <div class="menu-items">
+          <div class="menu-item"><div class="item-head"><h4>Margherita</h4><span class="price">3.50</span></div><p>Tomato sauce, mozzarella, basil</p></div>
+          <div class="menu-item"><div class="item-head"><h4>Funghi</h4><span class="price">4.50</span></div><p>Tomato sauce, mozzarella, mushrooms</p></div>
+          <div class="menu-item"><div class="item-head"><h4>Ortolana</h4><span class="price">5.25</span></div><p>Tomato sauce, mozzarella, mushrooms, peppers, zucchini, black olives</p></div>
+          <div class="menu-item"><div class="item-head"><h4>Quattro Formaggi</h4><span class="price">4.50</span></div><p>Mozzarella, Parmesan, Blue cheese, Brie</p></div>
+          <div class="menu-item"><div class="item-head"><h4>Salamino</h4><span class="price">5.25</span></div><p>Tomato sauce, mozzarella, cherry tomatoes, salami</p></div>
+        </div>
+        <div class="add-ons">
+          <span class="add-title">Add-ons:</span> Salami <span class="addon-price">0.5</span>, Mushrooms <span class="addon-price">0.5</span>
+        </div>
+      </section>
+
+      <!-- PASTA -->
+      <section class="menu-category">
+        <div class="category-header">
+          <h3>Pasta</h3>
+        </div>
+        <div class="menu-items">
+          <div class="menu-item"><div class="item-head"><h4>Fettuccine Alfredo</h4><span class="price">3.95</span></div><p>Parmesan, cream, mushrooms</p></div>
+          <div class="menu-item"><div class="item-head"><h4>Arrabbiata</h4><span class="price">3.25</span></div><p>Tomato sauce, garlic, chili, basil, black olives</p></div>
+          <div class="menu-item"><div class="item-head"><h4>Homemade Lasagne</h4><span class="price">4.95</span></div><p>Tomato sauce, mozzarella, minced meat, parmesan, bechamel</p></div>
+          <div class="menu-item"><div class="item-head"><h4>Penne Rose</h4><span class="price">3.75</span></div><p>Tomato sauce, cream, parmesan</p></div>
+          <div class="menu-item"><div class="item-head"><h4>Pesto Pasta</h4><span class="price">4.00</span></div><p>Penne or Fettuccine, homemade pesto, cream, parmesan</p></div>
+        </div>
+        <div class="add-ons">
+          <span class="add-title">Add-on:</span> Chicken <span class="addon-price">0.75</span>
+        </div>
+      </section>
+
+      <!-- CIABATTA -->
+      <section class="menu-category">
+        <div class="category-header">
+          <h3>Ciabatta</h3>
+        </div>
+        <div class="menu-items">
+          <div class="menu-item"><div class="item-head"><h4>Mozzarella & Pesto</h4><span class="price">2.75</span></div><p>Mozzarella, homemade pesto, basil, cherry tomatoes, rocca</p></div>
+          <div class="menu-item"><div class="item-head"><h4>Turkey & Pesto</h4><span class="price">3.25</span></div><p>Turkey, homemade pesto, mozzarella, rocca</p></div>
+        </div>
+      </section>
+
+      <!-- DESSERTS -->
+      <section class="menu-category">
+        <div class="category-header">
+          <h3>Desserts</h3>
+        </div>
+        <div class="menu-items">
+          <div class="menu-item"><div class="item-head"><h4>Tiramisu</h4><span class="price">2.75</span></div><p>Espresso, Savoiardi biscuits, mascarpone, cocoa</p></div>
+        </div>
+      </section>
+
+      <!-- DRINKS -->
+      <section class="menu-category">
+        <div class="category-header">
+          <h3>Drinks</h3>
+        </div>
+        <div class="menu-items">
+          <div class="menu-item"><div class="item-head"><h4>Soft Drinks - Matrix</h4><span class="price">0.50</span></div></div>
+          <div class="menu-item"><div class="item-head"><h4>Water</h4><span class="price">0.75</span></div></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="menu-footer">
+    <div class="container">
+      <p>FORNO — Artisanal Italian Kitchen</p>
+      <p>Amman, Jordan | Daily 10:00 AM – 11:00 PM</p>
+      <p style="margin-top: 1rem; opacity: 0.7; font-size: 0.9rem;">Prices in JOD. Ask for allergen info.</p>
+    </div>
+  </footer>
+  <script src="scripts/menu-script.js"></script>
+</body>
+</html>

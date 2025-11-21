@@ -1,0 +1,180 @@
+<!doctype html>
+<!--
+  FORNO — Minimal premium landing page
+  - Uses images from parent folder (WhatsApp Image ...jpg)
+  - Edit `QR_TARGET` in script.js to point to your hosted menu PDF or page
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FORNO — Authentic Italian Wood-Fired Experience</title>
+  <!-- Fonts: elegant serif for headers, clean sans for body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <h1 class="logo">FORNO</h1>
+        <p class="tagline">Authentic Italian Wood-Fired Experience</p>
+      </div>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#gallery">Menu</a>
+        <a href="#contact">Visit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO: background slider showcasing pizza & ciabatta -->
+    <section class="hero" aria-label="Hero">
+      <div class="hero-slider" data-slider>
+  <div class="slide" style="background-image:url('images/menu.jpg')" aria-hidden="false"></div>
+  <div class="slide" style="background-image:url('images/image1.jpg')" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero-content container">
+        <h2>FORNO</h2>
+        <p class="hero-sub">Authentic Italian Wood-Fired Experience</p>
+        <div class="hero-ctas">
+          <a class="btn" href="#gallery">View Menu</a>
+          <button class="btn-outline" id="open-qr">Scan QR Menu</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT: Image-first layout inspired by Cosy Club -->
+    <section id="about" class="about-section">
+      <div class="about-content">
+        <div class="about-image">
+          <img src="images/image2.jpg" alt="FORNO interior" loading="lazy">
+        </div>
+        <div class="about-text container">
+          <h3>About FORNO</h3>
+          <p>FORNO is a handcrafted Italian kitchen specialising in wood-fired pizzas, fresh ciabatta sandwiches, and traditional pasta. Using premium ingredients and time-honoured techniques, we deliver an authentic Mediterranean dining experience.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED ITEMS GALLERY -->
+    <section id="gallery" class="container gallery">
+      <h3>Featured</h3>
+      <p class="muted">A curated selection — simple, seasonal, and made to share.</p>
+
+      <div class="grid">
+        <!-- Card 1 -->
+        <article class="card">
+          <img src="images/image1.jpg" alt="Wood-fired pizza and ciabatta" loading="lazy">
+          <div class="card-body">
+            <h4>Wood-Fired Pizza</h4>
+            <p class="muted">Hand-stretched, blistered crust with seasonal toppings.</p>
+            <div class="price">JOD 0.00</div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card">
+          <img src="images/image2.jpg" alt="Ciabatta sandwich and pasta" loading="lazy">
+          <div class="card-body">
+            <h4>Ciabatta & Fillings</h4>
+            <p class="muted">Crisp, airy bread with house-made fillings.</p>
+            <div class="price">JOD 0.00</div>
+          </div>
+        </article>
+
+        <!-- Card 3 (Menu image) - flagged as menu -->
+        <article class="card">
+          <img src="images/menu.jpg" alt="Menu" loading="lazy" data-menu="true">
+          <div class="card-body">
+            <h4>Seasonal Menu</h4>
+            <p class="muted">Tap to preview the full menu or scan the QR.</p>
+            <div class="price">—</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- DIGITAL MENU SECTION -->
+    <section id="digital-menu" class="container digital-menu">
+      <h3>Digital Menu</h3>
+      <div class="menu-flex">
+        <!-- Embedded menu image (large preview) -->
+        <div class="menu-preview">
+          <a id="menu-full" href="menu.html" title="View the full digital menu">
+            <img src="images/menu.jpg" alt="Full Menu" loading="lazy">
+          </a>
+        </div>
+        <!-- QR and copy -->
+        <div class="menu-cta">
+          <h4>Scan to View Full Menu</h4>
+          <p class="muted">Open the full-size menu on your phone for easy browsing and sharing.</p>
+          <div class="qr-box" id="qr-box" aria-hidden="false"></div>
+          <p class="muted small">Or <a href="menu.html">view the full digital menu</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="container testimonials">
+      <h3>What Our Guests Say</h3>
+      <div class="testi-grid">
+        <blockquote>
+          <p>“The best pizza in Amman! The crust is perfect and the atmosphere is so warm.”</p>
+          <footer>— Lina S.</footer>
+        </blockquote>
+        <blockquote>
+          <p>“A true taste of Italy. The ciabatta sandwiches are a must-try.”</p>
+          <footer>— Omar A.</footer>
+        </blockquote>
+        <blockquote>
+          <p>“Elegant, minimal, and delicious. Forno is my new favorite spot.”</p>
+          <footer>— Sara M.</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- CONTACT & LOCATION -->
+    <section id="contact" class="container contact">
+      <h3>Contact & Location</h3>
+      <div class="contact-grid">
+        <div>
+          <p><strong>Address</strong><br>Amman, Jordan</p>
+          <p><strong>Phone</strong><br>+962 XXX XXX XXX</p>
+          <p><strong>Opening Hours</strong><br>Daily: 10:00 AM – 11:00 PM</p>
+        </div>
+        <div class="map">
+          <!-- Simple Google Maps embed placeholder centered on Amman -->
+          <iframe title="Forno location" src="https://www.google.com/maps?q=Amman,+Jordan&output=embed" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">FORNO</span>
+        <span class="footer-tag">Artisanal Italian Kitchen</span>
+      </div>
+      <div class="footer-links">
+        <a href="#gallery">Menu</a>
+        <a href="#contact">Contact</a>
+        <a href="#">Instagram</a>
+      </div>
+      <div class="footer-copy">
+        <p>© <span id="year"></span> FORNO — All rights reserved</p>
+        <p class="muted">Handcrafted in Amman, Jordan</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/script.js" defer></script>
+</body>
+</html>
