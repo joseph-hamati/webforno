@@ -9,14 +9,21 @@
   const YEAR = document.getElementById('year');
   if(YEAR) YEAR.textContent = new Date().getFullYear();
 
-  // CONFIG: update this to your hosted menu URL when ready
-  const QR_TARGET = 'menu.html'; // link to the digital menu page
+  // CONFIG: robust QR target
+  // Prefer an explicit override if set (useful when hosting on a different domain or path):
+  //   <script>window.MENU_URL = 'https://forno.example.com/menu.html'</script>
+  // Otherwise build an absolute URL relative to the current page so the QR works from any directory.
+  const QR_TARGET = (function(){
+    if(window.MENU_URL) return window.MENU_URL;
+    try { return new URL('menu.html', window.location.href).href; }
+    catch(e){ return 'menu.html'; }
+  })(); // absolute URL to the digital menu page (falls back to relative)
 
   // QR generator using Google Chart API (simple & no dependency)
   function makeQR(url, size=300){
     const img = document.createElement('img');
     const s = Math.max(120, Math.min(size, 600));
-    img.src = 'https://chart.googleapis.com/chart?chs=' + s + 'x' + s + '&cht=qr&chl=' + encodeURIComponent(url) + '&chld=L|1';
+    img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=' + s + 'x' + s + '&data=' + encodeURIComponent(url);
     img.alt = 'QR code linking to the menu';
     img.width = 120; img.height = 120;
     img.style.display = 'block';
@@ -95,3 +102,5 @@
     initQRButton();
   });
 })();
+
+
