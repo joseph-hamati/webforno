@@ -1,17 +1,19 @@
-/* Menu Page Script — QR generation and interactions */
+/* Menu Page Script  QR generation and interactions */
 (function(){
   // Get the current page URL for QR linking
   const MENU_URL = window.location.href; // full URL to menu.html
-  const QR_SIZE = 250;
+  const QR_SIZE = 200;
 
   // Generate QR code image using Google Chart API
   function generateQR(url, size){
     const img = document.createElement('img');
-    img.src = 'https://chart.googleapis.com/chart?chs=' + size + 'x' + size + '&cht=qr&chl=' + encodeURIComponent(url) + '&chld=L|1';
+    img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=' + size + 'x' + size + '&data=' + encodeURIComponent(url);
     img.alt = 'QR code for FORNO menu';
-    img.style.width = '100%';
-    img.style.height = '100%';
-    img.style.objectFit = 'contain';
+    img.width = size;
+    img.height = size;
+    img.style.maxWidth = '100%';
+    img.style.height = 'auto';
+    img.style.borderRadius = '8px';
     img.loading = 'lazy';
     return img;
   }
@@ -95,4 +97,5 @@
     revealMenuItems();
   });
 })();
+
 
