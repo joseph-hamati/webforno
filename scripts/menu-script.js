@@ -16,29 +16,45 @@
     return img;
   }
 
-  // Initialize QR button
+  // Initialize QR button & modal behavior
   function initQRButton(){
     const btn = document.getElementById('qr-trigger');
     const modal = document.getElementById('qr-modal');
     const display = document.getElementById('qr-display');
+    const closeBtn = modal ? modal.querySelector('.qr-close') : null;
 
     if(!btn || !modal || !display) return;
 
-    // Generate QR on first click to save resources
+    // Generate QR on first open to save resources
     let qrGenerated = false;
 
-    btn.addEventListener('click', ()=>{
+    function openModal(){
+      // On very small screens, show as full page sheet (CSS handles layout)
       modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden'; // prevent background scroll
       if(!qrGenerated){
         display.innerHTML = '';
         display.appendChild(generateQR(MENU_URL, QR_SIZE));
         qrGenerated = true;
       }
+    }
+
+    function closeModal(){
+      modal.style.display = 'none';
+      document.body.style.overflow = ''; // restore scrolling
+    }
+
+    btn.addEventListener('click', openModal);
+    if(closeBtn) closeBtn.addEventListener('click', closeModal);
+
+    // Close modal when clicking outside content
+    modal.addEventListener('click', (e)=>{
+      if(e.target === modal) closeModal();
     });
 
-    // Close modal when clicking outside
-    modal.addEventListener('click', (e)=>{
-      if(e.target === modal) modal.style.display = 'none';
+    // Close on ESC
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeModal();
     });
   }
 
@@ -62,29 +78,21 @@
     yearSpans.forEach(span => span.textContent = year);
   }
 
-  // FORNO Digital Menu — QR Modal Logic
-
-  document.getElementById('qr-trigger').onclick = function() {
-    var modal = document.getElementById('qr-modal');
-    modal.style.display = 'flex';
-    var qrDisplay = document.getElementById('qr-display');
-    var url = window.location.href;
-    var qrUrl = 'https://chart.googleapis.com/chart?cht=qr&chs=180x180&chl=' + encodeURIComponent(url);
-    qrDisplay.innerHTML = '<img src="' + qrUrl + '" alt="QR code for this menu" style="width:180px;height:180px;border-radius:12px;box-shadow:0 2px 8px rgba(75,58,47,0.10);">';
-  };
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      var modal = document.getElementById('qr-modal');
-      if (modal && modal.style.display !== 'none') {
-        modal.style.display = 'none';
-      }
-    }
-  });
+  // Reveal menu items with a subtle staggered animation on load
+  function revealMenuItems(){
+    const items = Array.from(document.querySelectorAll('.menu-items .menu-item'));
+    items.forEach((it, i)=>{
+      setTimeout(()=>{
+        it.classList.add('visible');
+      }, i * 80);
+    });
+  }
 
   document.addEventListener('DOMContentLoaded', ()=>{
     initQRButton();
     initSmoothScroll();
     initDynamicContent();
+    revealMenuItems();
   });
 })();
+
